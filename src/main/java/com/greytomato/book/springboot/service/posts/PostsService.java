@@ -2,6 +2,7 @@ package com.greytomato.book.springboot.service.posts;
 
 import com.greytomato.book.springboot.domain.posts.Posts;
 import com.greytomato.book.springboot.domain.posts.PostsRepository;
+import com.greytomato.book.springboot.web.dto.PostsListResponseDto;
 import com.greytomato.book.springboot.web.dto.PostsResponseDto;
 import com.greytomato.book.springboot.web.dto.PostsSaveRequestDto;
 import com.greytomato.book.springboot.web.dto.PostsUpdateRequestDto;
@@ -10,6 +11,8 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.Entity;
 import javax.transaction.Transactional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -36,5 +39,12 @@ public class PostsService {
                 .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
 
         return new PostsResponseDto(entity);
+    }
+
+    @Transactional
+    public List<PostsListResponseDto> findAllDesc() {
+        return postRepository.findAllDesc().stream()
+                .map(PostsListResponseDto::new)
+                .collect(Collectors.toList());
     }
 }
