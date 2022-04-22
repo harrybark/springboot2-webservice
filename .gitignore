@@ -14,5 +14,4 @@ rebel.xml
 
 .gradle
 
-application.yml
 application-oauth.yml
