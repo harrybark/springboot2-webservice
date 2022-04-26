@@ -4,7 +4,7 @@ import com.greytomato.book.springboot.domain.posts.Posts;
 import com.greytomato.book.springboot.domain.posts.PostsRepository;
 import com.greytomato.book.springboot.web.dto.PostsSaveRequestDto;
 import com.greytomato.book.springboot.web.dto.PostsUpdateRequestDto;
-import org.apache.coyote.Response;
+
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
